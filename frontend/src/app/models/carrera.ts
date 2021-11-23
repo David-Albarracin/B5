@@ -1,5 +1,5 @@
 export class Carrera {
-    _id: Number = 0 ;
+    _id: String = '' ;
     nombre: String = '';
     escuela:String = '';
     universidad:String = '';

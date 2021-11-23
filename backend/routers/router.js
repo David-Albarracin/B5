@@ -6,6 +6,7 @@ var controllerCarrera=require('../controllers/controllerCarrera');
 
 
 router.get('/prueba', controllerCarrera.prueba);
+
 router.post('/crear',controllerCarrera.saveCarrera);
 router.get('/buscar/:id',controllerCarrera.buscarData);
 router.get('/buscar/:id?',controllerCarrera.listarAllData);
