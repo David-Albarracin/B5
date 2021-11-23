@@ -1,0 +1,68 @@
+<nav class="navbar navbar-dark bg-primary">
+
+  <a class="navbar-brand"  href="/">
+    <img
+    width="40"
+    alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+    />
+    Ejemplo de CRUD Sencillo 
+    </a>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-3">
+      <ul class="list-group">
+              <li *ngFor="let Carr of carreraArr" 
+                class='list-group-item list-group-item-action ' [class.active]="Carr == selectedCar" (click)="editar(Carr)">
+                {{Carr._id}}:: {{Carr.nombre}} - {{Carr.escuela}} - {{Carr.universidad}} - {{Carr.duracion}}
+              </li>
+      </ul>
+    </div> 
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="card-title">
+          Agregue un nueva carrera
+          <br>
+        </div>
+        <div class="form-group">
+          Nombre: 
+          <input type="text" [(ngModel)]="selectedCar.nombre" placeholder="Escriba un Nombre" class="form-control">
+        </div>
+        <div class="form-group">
+          Escuela:
+          <input type="text" [(ngModel)]="selectedCar.escuela" placeholder="Escriba un Cargo" class="form-control">
+        </div>
+        <div class="form-group">
+          Universidad:
+          <input type="text" [(ngModel)]="selectedCar.universidad" placeholder="Escriba años de Experiencia" class="form-control">
+        </div>
+        <div class="form-group">
+          Duracion:
+          <input type="text" [(ngModel)]="selectedCar.duracion" placeholder="Escriba años de Experiencia" class="form-control">
+        </div>
+
+        <div>
+          <br>
+          <button (click)="editarGuardar()" class="btn btn-primary">
+            Enviar
+          </button> 
+          <button  *ngIf="selectedCar._id !==0" class="btn btn-danger" (click)="borrar()">
+              Borrar
+           </button>
+        </div>
+        
+
+
+        
+
+
+      </div>
+    </div>
+
+  </div>
+</div> 
+
+
+<router-outlet></router-outlet>
