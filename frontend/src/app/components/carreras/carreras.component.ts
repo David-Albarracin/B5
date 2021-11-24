@@ -15,6 +15,7 @@ import { NgForm } from "@angular/forms";
 
 
 export class CarrerasComponent implements OnInit {
+  
   carreraArr: Carrera[] = [];
 
   constructor(private _carreraService: CarreraService ) { 
