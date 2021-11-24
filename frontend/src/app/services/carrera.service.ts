@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class CarreraService {
 
+  selectedCarrera: Carrera = new Carrera();
   
   url = 'http://localhost:4000/buscar/';
 
@@ -21,16 +22,17 @@ export class CarreraService {
   getCarreras(): Observable<any> {
     return this.http.get(this.url);
   }
-
+  
+  putCarrera(carrera:Carrera) {
+    return this.http.put('http://localhost:4000/actualizar/' + '${Carrera._id}' , carrera);
+  }
 
 
   postCarrera(carrera:Carrera) {
     return this.http.post('http://localhost:4000/crear', carrera);
   }
 
-  putCarrera(carrera:Carrera) {
-    return this.http.put('http://localhost:4000/actualizar/' + '${Carrera._id}' , carrera);
-  }
+  
 
   deleteCarrera(_id:String) {
     return this.http.delete('http://localhost:4000/eliminar/' + '${Carrera._id}');
